@@ -1,0 +1,58 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<html>
+<head>
+	<title>Cuisines</title>
+</head>
+<body>
+	<div class="row top-menu">
+		<div class="row banner main"></div>
+		<div class="col-md-10"></div>
+		<div class="col-md-2 text-right"></div>
+	</div>
+	<div class="row divider blue">
+		<div class="col-md-12"></div>
+	</div>
+	
+		<div class="col-md-1"></div>
+			<div class="col-md-11 padding-none">
+				<div class="heading">Cuisines</div>
+			</div>
+		</div>
+		
+	<div class = 'row divider blue bottom'>
+		{% with messages = get_flashed_messages() %}
+	    {% if messages %}  
+		    
+		    {% for message in messages %}
+		        <strong> {{ message }} </strong>
+		    {% endfor %}
+		    
+	    {% endif %}
+	    {% endwith %}
+	</div>
+	<div class="row padding-top padding-bottom">
+		<div class="col-md-1"></div>
+		<div class="col-md-10 padding-none">
+			<a href="{{url_for('newCuisine')}}">
+				<button class="btn btn-default" id = "newCuisines">Add a new cuisine</button>
+			</a>
+		</div>
+		<div class="col-md-1"></div>
+	</div>
+	{% for cuisine in cuisines %}
+		<a href = "{{url_for('showRecipe', cuisine_id = cuisine.id)}}">
+			<div class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-10 restaurant-list">
+					<h3>{{cuisine.name}}</h3>
+				</div>
+				<div class="col-md-1"></div>
+			</div>
+		</a>
+	{% endfor %}
+{% endblock %}
+</form>
+</body>
+</html>

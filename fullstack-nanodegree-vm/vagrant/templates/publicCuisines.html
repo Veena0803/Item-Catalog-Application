@@ -1,0 +1,48 @@
+{% extends "main.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Public view</title>
+</head>
+<body>
+	<div class="col-md-12 text-right">
+			<a href="{{url_for('showLogin')}}">Click Here to Log in </a><br/><br/>
+	</div>
+	<br/>
+   	<div class="wallpaper">
+		<div class="row top-menu">
+			<div class="row banner public"></div>
+			<div class="col-md-10"></div>
+			<div class="col-md-2 text-right"></div>
+		</div>
+		<div class="row divider blue public">
+			<div class="col-md-12"></div>
+		</div>
+		<div class="col-md-1"></div>
+		<div class="col-md-11 padding-none">
+			<div class = "heading public">Cuisines</div>
+		</div>
+
+		<br/><br/><br/><br/>
+		<div class = "row divider blue bottom">
+			{% with messages = get_flashed_messages() %}
+	      		{% if messages %}  
+			        {% for message in messages %}
+			           <strong> {{ message }} </strong>
+			        {% endfor %}
+	        	{% endif %}
+	    	{% endwith %}
+	    </div>
+	    	<br/><br/>
+		    	{% for cuisine in cuisines %}
+		    	<br/>
+					<a href = "{{url_for('showRecipe', cuisine_id = cuisine.id)}}">
+						<h3 class="public">{{cuisine.name}}</h3>
+					</a>
+				{% endfor %}
+		</div>
+</body>
+</html>
+{% endblock %}

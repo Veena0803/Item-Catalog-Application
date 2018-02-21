@@ -1,0 +1,69 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Create a new recipe</title>
+</head>
+<body>
+	<div class="row divider green">
+		<div class="col-md-12"></div>
+	</div>
+	<div class="row banner menu">
+		<div class="col-md-11 col-md-offset-1 padding-none">
+			<h1>New Recipe</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6 col-md-offset-1 padding-top">
+			<form action="#" method = "post">
+				<div class="form-group"></label>
+					<label for="name">Recipe Name:
+					<input type ="text" maxlength="50" class="form-control" name="name" placeholder = "Name of the recipe">
+					
+					
+					<label for="description">Description:</label>
+					<textarea class="form-control" maxlength="250" rows="3" name="description" placeholder="Description of the recipe"></textarea>
+					
+
+
+					<label for="preptime">Preparation Time:</label>
+						<div class="input-group">
+							<input type ="text" class="form-control" maxlength="10" name="preptime" placeholder="Time in hours and mins">
+
+					<label for="course">Course:</label>
+					<br/>
+					<div class="radio">
+						<label>
+							<input type="radio" name="course" id="course1" value="Appetizers">Appetizer<br/>
+						</label>
+					</div>
+					<div class="radio">
+						<label>
+						    <input type="radio" name="course" id="course2" value="Entrees">Entree
+						</label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="course" id="course3" value="Desserts">Dessert
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="course" id="course4" value="Beverages">Beverage
+					  </label>
+					</div>
+					<button type="submit" class="btn btn-default" id="submit" type="submit">
+					<span class="glyphicon glyphicon-glass" aria-hidden="true"></span>Create</button>
+					<a href = "{{url_for('showRecipe', cuisine_id=cuisine_id)}}">
+						<button type="button" class="btn btn-default delete" id="submit" type="submit">
+						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Cancel</button>
+					</a>
+				</div>
+			</form>
+		</div>
+	</div>
+	</body>
+</html>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit a cuisine</title>
+</head>
+<body>
+	<div class="row divider green">
+		<div class="col-md-12"></div>
+	</div>
+	<div class="row banner menu">
+		<div class="col-md-11 col-md-offset-1 padding-none">
+			<h1>Edit {{cuisine.name}} cuisine</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6 col-md-offset-1 padding-top">
+			<div>
+				<form action="{{ url_for('editCuisine',cuisine_id = cuisine.id)}}" method = "post">
+					<label for="name">Name:</label>
+					<input type ="text" class="form-control" name = "name" value="{{cuisine.name}}"><br/>
+					<div class="padding-bottom"></div>
+						<button type="submit" class="btn btn-default" id="submit" type="submit">
+						<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Save</button>
+						<a href = '{{url_for('showCuisines')}}'>
+						<button type="button" class="btn btn-default delete">
+						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Cancel</button>
+						</a>
+				</form>
+				
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+{% endblock %}
