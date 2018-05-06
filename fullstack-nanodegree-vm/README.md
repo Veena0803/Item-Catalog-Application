@@ -1,5 +1,5 @@
 # Item Catalog Application - Cuisine Recipe Application
-#### Description
+#### Description:
 This project is part of the Udacity Full Stack Nanodegree program which demonstrates the development of modern web applications. It consists of developing a RESTful web application using the Python Flask framework and a persistent data storage along with third party OAuth authentication. It demonstrates the core features of a secured web application - CRUD (Create, Read, Update, Delete). 
 
 ### Prerequistes:
